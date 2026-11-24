@@ -1,0 +1,17 @@
+{
+  "appId": "com.skat.wuyincomposer",
+  "appName": "五音堂",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  },
+  "android": {
+    "allowMixedContent": true
+  },
+  "plugins": {
+    "StatusBar": {
+      "style": "DARK",
+      "backgroundColor": "#1a1410"
+    }
+  }
+}

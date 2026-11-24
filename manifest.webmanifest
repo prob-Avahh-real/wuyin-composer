@@ -1,0 +1,19 @@
+{
+  "name": "五音堂",
+  "short_name": "五音堂",
+  "description": "以宫商角徵羽为主旋律批量创作歌曲",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#1a1410",
+  "theme_color": "#1a1410",
+  "lang": "zh-CN",
+  "icons": [
+    {
+      "src": "./icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

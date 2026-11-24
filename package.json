@@ -1,0 +1,40 @@
+{
+  "name": "wuyin-composer",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "五音堂 — 以宫商角徵羽为主旋律批量创作。iOS / Android / 手表 / 智能戒指手杖",
+  "bin": {
+    "wuyin": "./bin/wuyin-cli.js"
+  },
+  "scripts": {
+    "build": "node scripts/build-web.js",
+    "start": "npm run build && npx --yes serve www -p 5188",
+    "compose": "node bin/wuyin-cli.js",
+    "sync:android": "npm run build && npx cap sync android",
+    "sync:ios": "LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 npm run build && LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 npx cap sync ios",
+    "open:android": "npx cap open android",
+    "open:ios": "npx cap open ios",
+    "mobile:android": "npm run sync:android && npm run open:android",
+    "mobile:ios": "npm run sync:ios && npm run open:ios",
+    "apk": "npm run sync:android && cd android && node ../../tools/run-gradle-android.mjs assembleDebug",
+    "test": "node --test --experimental-test-coverage --test-coverage-lines=90 --test-coverage-branches=90 --test-coverage-functions=90 test/*.test.js",
+    "test:unit": "node --test test/unit.test.js test/theory.test.js test/composer.test.js test/browser-modules.test.js",
+    "test:ab": "node --test test/ab.test.js",
+    "test:completeness": "node --test test/completeness.test.js",
+    "test:robustness": "node --test test/robustness.test.js",
+    "test:security": "node --test test/security.test.js",
+    "test:all": "npm run test:unit && npm run test:ab && npm run test:completeness && npm run test:robustness && npm run test:security && npm test"
+  },
+  "dependencies": {
+    "@capacitor/android": "^6.2.0",
+    "@capacitor/core": "^6.2.0",
+    "@capacitor/haptics": "^6.0.2",
+    "@capacitor/ios": "^6.2.0",
+    "@capacitor/status-bar": "^6.0.2"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^6.2.0",
+    "esbuild": "^0.24.0"
+  }
+}
